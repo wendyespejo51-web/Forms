@@ -3,29 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario App para usuarios externos</title>
+  <title>Catastro en celdas del transformador</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-container">
-    <h1>Inspección de celda del transformador</h1>
-    
-    <form id="miFormulario">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
+  <div class="container">
+    <h1>Inspección a celda de transformación</h1>
+    <form id="registroForm">
 
-      <label for="correo">Correo:</label>
-      <input type="email" id="correo" name="correo" required>
+      <!-- Fecha automática -->
+      <div class="form-group">
+        <label for="fecha">Fecha de registro</label>
+        <input type="text" id="fecha" name="fecha" readonly>
+      </div>
+      <script>
+    // Al cargar la página, insertar fecha actual
+      document.addEventListener("DOMContentLoaded", function() {
+      let hoy = new Date();
+      let fecha = hoy.toLocaleDateString("es-PE"); // formato dd/mm/yyyy según región
+      document.getElementById("fecha").value = fecha;
+      });
+      </script>
 
-      <label for="comentario">Comentario:</label>
-      <textarea id="comentario" name="comentario" required></textarea>
+     <!-- Cuadrilla de trabajo -->
+    <div class="form-group">
+      <label for="grupo">Cuadrilla</label>
+      <select id="grupo" name="grupo" required>
+        <option value="" disabled selected hidden>Seleccione una cuadrilla</option>
+        <option value="Grupo 1">Cuadrilla 1</option>
+        <option value="Grupo 2">Cuadrilla 2</option>
+        <option value="Grupo 3">Cuadrilla 3</option>
+      </select>
+    </div>
 
+      <!-- SED -->
+      <div class="form-group">
+        <label for="codigo">SED (Agregar solo número de SED)</label>
+        <input type="number" id="codigo" name="codigo" min="0" required>
+      </div>
+
+      <!-- Alim -->
+      <div class="form-group">
+        <label for="alim">Alimentador</label>
+        <input type="text" id="alim" name="alim" required>
+      </div>
+
+      <!-- Celda -->
+      <div class="form-group">
+        <label for="Celda">Celda</label>
+        <select id="Celda" name="celda" required>
+          <option value="" disabled selected hidden>Seleccione la celda</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+      </div>
+
+      <!-- Potencia -->
+      <div class="form-group">
+        <label for="potencia">Potencia del transformador (KVA):</label>
+        <input type="number" id="potencia" name="potencia" min="0" required>
+      </div>
+
+      <!-- Cable normalizado -->
+      <div class="form-group">
+        <label for="cableNormalizado">Cable de comunicación normalizado:</label>
+        <select id="cableNormalizado" name="cableNormalizado" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- Cable sustraído -->
+      <div class="form-group">
+        <label for="cableSustraido">Cable de comunicación sustraído:</label>
+        <select id="cableSustraido" name="cableSustraido" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- Sección de cable -->
+      <div class="form-group">
+        <label for="seccionCable">Sección de cable de comunicación</label>
+        <select id="seccionCable" name="seccionCable" required>
+          <option value="" disabled selected hidden>Seleccione la sección</option>
+          <option value="70mm²">70 mm²</option>
+          <option value="95mm²">95 mm²</option>
+          <option value="120mm²">120 mm²</option>
+          <option value="185mm²">185 mm²</option>
+          <option value="240mm²">240 mm²</option>
+          <option value="400mm²">400 mm²</option>
+          <option value="500mm²">500 mm²</option>
+          <option value="800mm²">800 mm²</option>
+        </select>
+      </div>
+
+      <!-- Tipo de cable -->
+      <div class="form-group">
+        <label for="tipoCable">Tipo de cable de comunicación</label>
+        <select id="tipoCable" name="tipoCable" required>
+          <option value="" disabled selected hidden>Seleccione el tipo</option>
+          <option value="Cobre">Cobre</option>
+          <option value="Aluminio">Aluminio</option>
+          <option value="Barra única">Barra única (Subestación tipo C)</option>
+        </select>
+      </div>
+
+      <!-- Ternas existentes -->
+      <div class="form-group">
+        <label for="ternasExistentes">Ternas existentes</label>
+        <select id="ternasExistentes" name="ternasExistentes" required>
+          <option value="" disabled selected hidden>Seleccione las ternas existentes</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+
+      <!-- Ternas faltantes -->
+      <div class="form-group">
+        <label for="ternasFaltantes">Ternas faltantes</label>
+        <select id="ternasFaltantes" name="ternasFaltantes" required>
+          <option value="" disabled selected hidden>Seleccione las ternas faltantes</option>
+          <option value="No aplica">No aplica, ternas completas</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+
+      <!-- Decoloración de cable -->
+      <div class="form-group">
+        <label for="decoloracion">Decoloración de pletina o cable</label>
+        <select id="decoloracion" name="decoloracion" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- Carga de cables -->
+      <div class="form-group">
+        <label for="carga1">Carga de cable de cable de comunicación - Fase R</label>
+        <input type="number" id="carga1" name="carga1" min="0" required>
+      </div>
+      <div class="form-group">
+        <label for="carga2">Carga de cable de cable de comunicación - Fase S</label>
+        <input type="number" id="carga2" name="carga2" min="0" required>
+      </div>
+      <div class="form-group">
+        <label for="carga3">Carga de cable de cable de comunicación - Fase T</label>
+        <input type="number" id="carga3" name="carga3" min="0" required>
+      </div>
+
+      <!-- Todos los cables -->
+      <div class="form-group">
+        <label for="todosCables">¿Todos los cables toman carga?</label>
+        <select id="todosCables" name="todosCables" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- Tipo de tapón -->
+      <div class="form-group">
+        <label for="tapon">Tipo de tapón del transformador</label>
+        <select id="tapon" name="tapon" required>
+          <option value="" disabled selected hidden>Seleccione el tipo</option>
+          <option value="Servicio">Servicio</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Transformador no tiene tapón">Transformador no tiene tapón</option>
+        </select>
+      </div>
+
+      <!-- Filtración de aceite -->
+      <div class="form-group">
+        <label for="filtracion">¿Filtración de aceite en el transformador?</label>
+        <select id="filtracion" name="filtracion" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- Dónde se encuentra filtración -->
+      <div class="form-group">
+        <label for="dondeFiltracion">¿Dónde se encuentra filtración?</label>
+        <select id="dondeFiltracion" name="dondeFiltracion" required>
+          <option value="" disabled selected hidden>Seleccione la ubicación</option>
+          <option value="Tapa">Tapa</option>
+          <option value="Tanque">Tanque</option>
+          <option value="Conexión">Conexión</option>
+          <option value="Todas las anteriores">Todas las anteriores</option>
+        </select>
+      </div>
+
+      <!-- Sensación térmica -->
+      <div class="form-group">
+        <label for="sensacion"> Calentamiento del transformador (Sensación térmica)</label>
+        <select id="sensacion" name="sensacion" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+          <option value="No presenta">No presenta</option>
+        </select>
+      </div>
+
+      <!-- Disyuntor BT -->
+      <div class="form-group">
+        <label for="equipoBT">Disyuntor BT</label>
+        <select id="equipoBT" name="equipoBT" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Normalizado">Normalizado (Corresponde a capacidad del trafo)</option>
+          <option value="No normalizado">No normalizado (No corresponde a capacidad del trafo)</option>
+          <option value="No tiene">No tiene ninguna protección</option>
+        </select>
+      </div>
+
+      <!-- Estado de disyuntor BT -->
+      <div class="form-group">
+        <label for="estadoBT">Estado de disyuntor BT</label>
+        <select id="estadoBT" name="estadoBT" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Buen estado">Buen estado</option>
+          <option value="Fogoneado">Fogoneado</option>
+          <option value="Descargado o roto">Descargado o roto</option>
+          <option value="Antiguo u obsoleto">Antiguo u obsoleto</option>
+        </select>
+      </div>
+
+      <!-- Sistema de barra -->
+      <div class="form-group">
+        <label for="sistemaBarra">Sistema de barra:</label>
+        <select id="sistemaBarra" name="sistemaBarra">
+          <option value="" disabled selected hidden>Seleccione el sistema de barra</option>
+          <option value="Única">Única (1 solo transformador)</option>
+          <option value="Común">Común, a varios transformadores</option>
+          <option value="Partida">Partida (transformadores separados)</option>
+        </select>
+      </div>
+
+      <!-- Hallazgos -->
+      <div class="form-group">
+        <label for="hallazgos">Hallazgos:</label>
+        <textarea id="hallazgos" name="hallazgos" rows="4"></textarea>
+      </div>
+
+      <!-- Imágenes -->
+      <div class="form-group">
+        <label for="imagenes">Subir imágenes (máx. 10):</label>
+        <input type="file" id="imagenes" name="imagenes" accept="image/*" multiple>
+        <small>Puede subir hasta 10 imágenes</small>
+      </div>
+
+      <!-- Botón -->
       <button type="submit">Enviar</button>
     </form>
-
-    <p id="mensaje"></p>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
