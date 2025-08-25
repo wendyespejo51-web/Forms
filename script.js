@@ -1,5 +1,5 @@
-document.getElementById("registroForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+document.getElementById("enviarBtn").addEventListener("click", async function(e) {
+  e.preventDefault(); ;
 
   // Capturar todos los datos del formulario
   const datos = {
