@@ -5,10 +5,10 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
   const datos = {
     fecha: document.getElementById("fecha").value,
     grupo: document.getElementById("grupo").value,
-    codigo: document.getElementById("codigo").value,
+    codigo: parseInt(document.getElementById("codigo").value),
     alim: document.getElementById("alim").value,
-    celda: document.getElementById("Celda").value,
-    potencia: document.getElementById("potencia").value,
+    Celda: document.getElementById("Celda").value,
+    potencia: parseInt(document.getElementById("potencia").value),
     cableNormalizado: document.getElementById("cableNormalizado").value,
     cableSustraido: document.getElementById("cableSustraido").value,
     seccionCable: document.getElementById("seccionCable").value,
@@ -16,9 +16,9 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     ternasExistentes: document.getElementById("ternasExistentes").value,
     ternasFaltantes: document.getElementById("ternasFaltantes").value,
     decoloracion: document.getElementById("decoloracion").value,
-    carga1: document.getElementById("carga1").value,
-    carga2: document.getElementById("carga2").value,
-    carga3: document.getElementById("carga3").value,
+    carga1: parseInt(document.getElementById("carga1").value),
+    carga2: parseInt(document.getElementById("carga2").value),
+    carga3: parseInt(document.getElementById("carga3").value),
     todosCables: document.getElementById("todosCables").value,
     tapon: document.getElementById("tapon").value,
     filtracion: document.getElementById("filtracion").value,
@@ -70,3 +70,4 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     console.error(error);
   }
 });
+
