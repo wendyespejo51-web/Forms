@@ -55,7 +55,7 @@ document.getElementById("registroForm").addEventListener("submit", async functio
     const response = await fetch("https://prod-29.brazilsouth.logic.azure.com:443/workflows/55c50e4786ac4b6d8e7c847e073406c8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0AJgO27Tp2dSUdwcv5ties3GrFuGZ_2bbMP0nGYPKbk", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(datos)
+      body: new Blob([jsonBody], { type: "application/json" })
     });
 
     if (response.ok) {
