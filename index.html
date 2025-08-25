@@ -30,9 +30,9 @@
       <label for="grupo">Cuadrilla</label>
       <select id="grupo" name="grupo" required>
         <option value="" disabled selected hidden>Seleccione una cuadrilla</option>
-        <option value="Grupo 1">Cuadrilla 1</option>
-        <option value="Grupo 2">Cuadrilla 2</option>
-        <option value="Grupo 3">Cuadrilla 3</option>
+        <option value="Cuadrilla 1">Cuadrilla 1</option>
+        <option value="Cuadrilla 2">Cuadrilla 2</option>
+        <option value="Cuadrilla 3">Cuadrilla 3</option>
       </select>
     </div>
 
@@ -91,14 +91,14 @@
         <label for="seccionCable">Sección de cable de comunicación</label>
         <select id="seccionCable" name="seccionCable" required>
           <option value="" disabled selected hidden>Seleccione la sección</option>
-          <option value="70mm²">70 mm²</option>
-          <option value="95mm²">95 mm²</option>
-          <option value="120mm²">120 mm²</option>
-          <option value="185mm²">185 mm²</option>
-          <option value="240mm²">240 mm²</option>
-          <option value="400mm²">400 mm²</option>
-          <option value="500mm²">500 mm²</option>
-          <option value="800mm²">800 mm²</option>
+          <option value="70 mm²">70 mm²</option>
+          <option value="95 mm²">95 mm²</option>
+          <option value="120 mm²">120 mm²</option>
+          <option value="185 mm²">185 mm²</option>
+          <option value="240 mm²">240 mm²</option>
+          <option value="400 mm²">400 mm²</option>
+          <option value="500 mm²">500 mm²</option>
+          <option value="800 mm²">800 mm²</option>
         </select>
       </div>
 
@@ -109,7 +109,7 @@
           <option value="" disabled selected hidden>Seleccione el tipo</option>
           <option value="Cobre">Cobre</option>
           <option value="Aluminio">Aluminio</option>
-          <option value="Barra única">Barra única (Subestación tipo C)</option>
+          <option value="Barra única (Subestación tipo C)">Barra única (Subestación tipo C)</option>
         </select>
       </div>
 
@@ -130,7 +130,7 @@
         <label for="ternasFaltantes">Ternas faltantes</label>
         <select id="ternasFaltantes" name="ternasFaltantes" required>
           <option value="" disabled selected hidden>Seleccione las ternas faltantes</option>
-          <option value="No aplica">No aplica, ternas completas</option>
+          <option value="No aplica, ternas completas">No aplica, ternas completas</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -198,6 +198,7 @@
         <label for="dondeFiltracion">¿Dónde se encuentra filtración?</label>
         <select id="dondeFiltracion" name="dondeFiltracion" required>
           <option value="" disabled selected hidden>Seleccione la ubicación</option>
+          <option value="No aplica, no se visuliaza filtración de aceite">No aplica, no se visuliaza filtración de aceite</option>
           <option value="Tapa">Tapa</option>
           <option value="Tanque">Tanque</option>
           <option value="Conexión">Conexión</option>
@@ -222,9 +223,9 @@
         <label for="equipoBT">Disyuntor BT</label>
         <select id="equipoBT" name="equipoBT" required>
           <option value="" disabled selected hidden>Seleccione un elemento</option>
-          <option value="Normalizado">Normalizado (Corresponde a capacidad del trafo)</option>
-          <option value="No normalizado">No normalizado (No corresponde a capacidad del trafo)</option>
-          <option value="No tiene">No tiene ninguna protección</option>
+          <option value="Normalizado (Corresponde a capacidad del trafo)">Normalizado (Corresponde a capacidad del trafo)</option>
+          <option value="No normalizado (No corresponde a capacidad del trafo)">No normalizado (No corresponde a capacidad del trafo)</option>
+          <option value="No tiene ninguna protección">No tiene ninguna protección</option>
         </select>
       </div>
 
@@ -237,6 +238,7 @@
           <option value="Fogoneado">Fogoneado</option>
           <option value="Descargado o roto">Descargado o roto</option>
           <option value="Antiguo u obsoleto">Antiguo u obsoleto</option>
+          <option value="No aplica, no tiene ninguna protección">No aplica, no tiene ninguna protección</option>
         </select>
       </div>
 
@@ -245,9 +247,9 @@
         <label for="sistemaBarra">Sistema de barra:</label>
         <select id="sistemaBarra" name="sistemaBarra">
           <option value="" disabled selected hidden>Seleccione el sistema de barra</option>
-          <option value="Única">Única (1 solo transformador)</option>
-          <option value="Común">Común, a varios transformadores</option>
-          <option value="Partida">Partida (transformadores separados)</option>
+          <option value="Única (1 solo transformador)">Única (1 solo transformador)</option>
+          <option value="Común, a varios transformadores">Común, a varios transformadores</option>
+          <option value="Partida (transformadores separados)">Partida (transformadores separados)</option>
         </select>
       </div>
 
@@ -271,4 +273,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
