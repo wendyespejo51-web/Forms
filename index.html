@@ -30,9 +30,9 @@
       <label for="grupo">Cuadrilla</label>
       <select id="grupo" name="grupo" required>
         <option value="" disabled selected hidden>Seleccione una cuadrilla</option>
-        <option value="Cuadrilla 1">Cuadrilla 1</option>
-        <option value="Cuadrilla 2">Cuadrilla 2</option>
-        <option value="Cuadrilla 3">Cuadrilla 3</option>
+        <option value="Cuadrilla de SSAA - Christian Cirinero">Cuadrilla de SSAA - Christian Cirinero</option>
+        <option value="Cuadrilla de limpieza - Marco Bernal">Cuadrilla de limpieza - Marco Bernal</option>
+        <option value="Cuadrilla de trabajos menores - Edwar Ortega">Cuadrilla de trabajos menores - Edwar Ortega</option>
       </select>
     </div>
 
@@ -44,7 +44,7 @@
 
       <!-- Alim -->
       <div class="form-group">
-        <label for="alim">Alimentador (Sin guión, EJM: A02, SI12, MO24, etc.)</label>
+        <label for="alim">Alimentador (No agregar guión, EJM: A02, SI12, MO24, etc.)</label>
         <input type="text" id="alim" name="alim" required>
       </div>
 
@@ -172,6 +172,18 @@
         </select>
       </div>
 
+      <!-- Estado transformador de potencia -->
+      <div class="form-group">
+        <label for="estadoTrafo">Estado transformador de potencia</label>
+        <select id="estadoTrafo" name="estadoTrafo" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Buen estado">Buen estado</option>
+          <option value="Corroído">Corroído</option>
+          <option value="Con polvo acumulado">Con polvo acumulado</option>
+          <option value="Con abolladuras, grietas o piezas rotas en el tanque/accesorios">Con abolladuras, grietas o piezas rotas en el tanque/accesorios</option>
+        </select>
+      </div>
+      
       <!-- Tipo de tapón -->
       <div class="form-group">
         <label for="tapon">Tipo de tapón del transformador</label>
@@ -179,7 +191,18 @@
           <option value="" disabled selected hidden>Seleccione el tipo</option>
           <option value="Servicio">Servicio</option>
           <option value="Transporte">Transporte</option>
-          <option value="Transformador no tiene tapón">Transformador no tiene tapón</option>
+          <option value="Sin tapón">Sin tapón</option>
+        </select>
+      </div>
+
+       <!-- Nivel aceite en mirilla del transformador -->
+      <div class="form-group">
+        <label for="Mirilla">Nivel aceite en mirilla del transformador</label>
+        <select id="Mirilla" name="Mirilla" required>
+          <option value="" disabled selected hidden>Indique el nivel de aceite en la mirilla</option>
+          <option value="Nivel de aceite conforme">Nivel de aceite conforme</option>
+          <option value="Por encima del rango óptimo">Por encima del rango óptimo</option>
+          <option value="Por debajo del rango óptimo">Por debajo del rango óptimo</option>
         </select>
       </div>
 
@@ -193,16 +216,40 @@
         </select>
       </div>
 
+      <!-- Nivel de filtración de aceite -->
+      <div class="form-group">
+        <label for="NivelFiltracion"> Nivel de filtración de aceite</label>
+        <select id="NivelFiltracion" name="NivelFiltracion" required>
+          <option value="" disabled selected hidden>Indicar el nivel de aceite</option>
+          <option value="Leve">Leve</option>
+          <option value="Moderado">Moderado</option>
+          <option value="Grave">Grave</option>
+          <option value="No presenta">No presenta</option>
+        </select>
+      </div>
+
       <!-- Dónde se encuentra filtración -->
       <div class="form-group">
         <label for="dondeFiltracion">¿Dónde se encuentra filtración?</label>
         <select id="dondeFiltracion" name="dondeFiltracion" required>
           <option value="" disabled selected hidden>Seleccione la ubicación</option>
-          <option value="No aplica, no se visuliaza filtración de aceite">No aplica, no se visuliaza filtración de aceite</option>
+          <option value="No aplica, no se visualiza filtración de aceite">No aplica, no se visualiza filtración de aceite</option>
           <option value="Tapa">Tapa</option>
-          <option value="Tanque">Tanque</option>
-          <option value="Conexión">Conexión</option>
+          <option value="Cuba">Cuba</option>
+          <option value="Rieles">Rieles</option>
+          <option value="Suelo">Suelo</option>
           <option value="Todas las anteriores">Todas las anteriores</option>
+        </select>
+      </div>
+
+      <!-- Estado de aceite -->
+      <div class="form-group">
+        <label for="Estadoaceite">Estado de aceite</label>
+        <select id="Estadoaceite" name="Estadoaceite" required>
+          <option value="" disabled selected hidden>Seleccione el estado</option>
+          <option value="Fresca">Fresca</option>
+          <option value="Seco">Seco</option>
+          <option value="No aplica">No aplica</option>
         </select>
       </div>
 
@@ -216,6 +263,12 @@
           <option value="Baja">Baja</option>
           <option value="No presenta">No presenta</option>
         </select>
+      </div>
+
+      <!-- Medición de temperatura con pirómetro -->
+      <div class="form-group">
+        <label for="MedicionTemperatura"> Medición de temperatura con pirómetro (°C)</label>
+        <input type="number" id="MedicionTemperatura" name="MedicionTemperatura" min="0" required>
       </div>
 
       <!-- Disyuntor BT -->
@@ -273,6 +326,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
