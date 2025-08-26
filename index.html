@@ -91,11 +91,13 @@
         <label for="seccionCable">Sección de cable de comunicación</label>
         <select id="seccionCable" name="seccionCable" required>
           <option value="" disabled selected hidden>Seleccione la sección</option>
+          <option value="No corresponde, es barra única">No corresponde, es barra única</option>
           <option value="70 mm²">70 mm²</option>
           <option value="95 mm²">95 mm²</option>
           <option value="120 mm²">120 mm²</option>
           <option value="185 mm²">185 mm²</option>
           <option value="240 mm²">240 mm²</option>
+          <option value="300 mm²">300 mm²</option>
           <option value="400 mm²">400 mm²</option>
           <option value="500 mm²">500 mm²</option>
           <option value="800 mm²">800 mm²</option>
@@ -174,7 +176,7 @@
 
       <!-- Estado transformador de potencia -->
       <div class="form-group">
-        <label for="estadoTrafo">Estado transformador de potencia</label>
+        <label for="estadoTrafo">Estado de transformador de potencia</label>
         <select id="estadoTrafo" name="estadoTrafo" required>
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Buen estado">Buen estado</option>
@@ -326,6 +328,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
