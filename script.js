@@ -8,8 +8,8 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado", 
     "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes", 
-    "decoloracion", "carga1", "carga2", "carga3", "todosCables", "tapon", 
-    "filtracion", "dondeFiltracion", "sensacion", "equipoBT", "estadoBT", 
+    "decoloracion", "carga1", "carga2", "carga3", "todosCables", "estadoTrafo", "tapon", "Mirilla",
+    "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite", "sensacion", "MedicionTemperatura", "equipoBT", "estadoBT", 
     "sistemaBarra", "hallazgos"
   ];
 
@@ -17,7 +17,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
   campos.forEach(campo => {
     const elemento = document.getElementById(campo);
     if (elemento) {
-      if (["codigo", "potencia", "carga1", "carga2", "carga3"].includes(campo)) {
+      if (["codigo", "potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) {
         datos[campo] = parseInt(elemento.value);
       } else {
         datos[campo] = elemento.value;
@@ -64,4 +64,5 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     console.error(error);
   }
 });
+
 
