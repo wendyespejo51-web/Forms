@@ -185,6 +185,47 @@
           <option value="Con abolladuras, grietas o piezas rotas en el tanque/accesorios">Con abolladuras, grietas o piezas rotas en el tanque/accesorios</option>
         </select>
       </div>
+
+      <!-- Empaque de transformador de potencia -->
+      <div class="form-group">
+        <label for="EmpaqueTrafo">Empaque de transformador de potencia</label>
+        <select id="EmpaqueTrafo" name="EmpaqueTrafo" required>
+          <option value="" disabled selected hidden>Seleccione un elemento</option>
+          <option value="Buen estado">Buen estado</option>
+          <option value="Pintado">Pintado</option>
+          <option value="Agrietado">Agrietado</option>
+        </select>
+      </div>
+
+      <!-- ¿Transformador de potencia tiene arandela de presión?-->
+      <div class="form-group">
+        <label for="ArandelaPresion">¿Transformador de potencia tiene arandela de presión?</label>
+        <select id="ArandelaPresion" name="ArandelaPresion" required>
+          <option value="" disabled selected hidden>Seleccione una respuesta</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- En el transformador ¿La barra cuenta con soporte sin ejercer torque en el bushing?-->
+      <div class="form-group">
+        <label for="TorqueBushing">En el transformador ¿La barra cuenta con soporte sin ejercer torque en el bushing?</label>
+        <select id="TorqueBushing" name="TorqueBushing" required>
+          <option value="" disabled selected hidden>Seleccione una respuesta</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <!-- En el transformador ¿El tipo de aseguramiento de la barra es con borne tipo bandera?-->
+      <div class="form-group">
+        <label for="BorneBandera">En el transformador ¿El tipo de aseguramiento de la barra es con borne tipo bandera?</label>
+        <select id="BorneBandera" name="BorneBandera" required>
+          <option value="" disabled selected hidden>Seleccione una respuesta</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
       
       <!-- Tipo de tapón -->
       <div class="form-group">
@@ -202,9 +243,9 @@
         <label for="Mirilla">Nivel aceite en mirilla del transformador</label>
         <select id="Mirilla" name="Mirilla" required>
           <option value="" disabled selected hidden>Indique el nivel de aceite en la mirilla</option>
-          <option value="Nivel de aceite conforme">Nivel de aceite conforme</option>
-          <option value="Por encima del rango óptimo">Por encima del rango óptimo</option>
-          <option value="Por debajo del rango óptimo">Por debajo del rango óptimo</option>
+          <option value="Conforme">Conforme</option>
+          <option value="Por encima del rango">Por encima del rango</option>
+          <option value="Por debajo del rango">Por debajo del rango</option>
         </select>
       </div>
 
@@ -232,12 +273,18 @@
 
       <!-- Dónde se encuentra filtración -->
       <div class="form-group">
-        <label for="dondeFiltracion">¿Dónde se encuentra filtración?</label>
+        <label for="dondeFiltracion">¿Dónde se encuentra la filtración?</label>
         <select id="dondeFiltracion" name="dondeFiltracion" required>
           <option value="" disabled selected hidden>Seleccione la ubicación</option>
           <option value="No aplica, no se visualiza filtración de aceite">No aplica, no se visualiza filtración de aceite</option>
           <option value="Tapa">Tapa</option>
           <option value="Cuba">Cuba</option>
+          <option value="Válvula de presión">Válvula de presión</option>
+          <option value="Válvula de drenaje">Válvula de drenaje</option>
+          <option value="Conmutador">Conmutador</option>
+          <option value="Bushing de BT">Bushing de BT</option>
+          <option value="Bushing de MT">Bushing de MT</option>
+          <option value="Aletas del transformador">Aletas del transformador</option>
           <option value="Rieles">Rieles</option>
           <option value="Suelo">Suelo</option>
           <option value="Todas las anteriores">Todas las anteriores</option>
@@ -246,10 +293,10 @@
 
       <!-- Estado de aceite -->
       <div class="form-group">
-        <label for="Estadoaceite">Estado de aceite</label>
+        <label for="Estadoaceite">Estado de mancha de aceite</label>
         <select id="Estadoaceite" name="Estadoaceite" required>
           <option value="" disabled selected hidden>Seleccione el estado</option>
-          <option value="Fresca">Fresca</option>
+          <option value="Fresca / Activa">Fresca / Activa</option>
           <option value="Seco">Seco</option>
           <option value="No aplica">No aplica</option>
         </select>
@@ -328,6 +375,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
