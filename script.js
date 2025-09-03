@@ -1048,7 +1048,10 @@ inputSED.addEventListener("input", function () {
   if (valor.length === 0) return;
 
   // Filtrar SED que empiezan con lo que escribió
-  const filtrados = listaSED.filter(sed => sed.startsWith(valor));
+  const filtrados = listaSED.filter(sed => {
+    const sedSinS = sed.replace('S', ''); // Quita la S
+    return sed.includes(valor) || sedSinS.includes(valor);
+  }
 
   if (filtrados.length > 0) {
     suggestionsList.style.display = "block";
@@ -1147,3 +1150,4 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     console.error(error);
   }
 });
+
