@@ -55,7 +55,9 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     if (response.ok) {
       alert("✅ Datos enviados correctamente");
       document.getElementById("registroForm").reset();
-      document.getElementById("fecha").value = new Date().toLocaleDateString("es-PE");
+      const hoy = new Date();
+      const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
+      document.getElementById("fecha").value = fechaHoy;
     } else {
       alert("❌ Error al enviar datos");
     }
@@ -64,6 +66,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     console.error(error);
   }
 });
+
 
 
 
