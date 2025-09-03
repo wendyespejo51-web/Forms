@@ -39,8 +39,9 @@
 
       <!-- SED -->
       <div class="form-group">
-        <label for="codigo">SED (Agregar solo número de SED. EJM: 1202, 21, etc.)</label>
-        <input type="number" id="codigo" name="codigo" min="0" required>
+        <label for="codigo">SED (ej: 01520S, 00021S, 80001S)</label>
+        <input type="text" id="codigo" name="codigo" required>
+        <ul id="suggestions" class="suggestions-list"></ul>
       </div>
 
       <!-- Alim -->
@@ -376,6 +377,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
