@@ -11,35 +11,33 @@
   <div class="container">
     <h1>Inspección a celda de transformación</h1>
     <form id="registroForm">
-
       <!-- Fecha automática -->
       <div class="form-group">
         <label for="fecha">Fecha de registro</label>
         <input type="date" id="fecha" name="fecha" required>
       </div>
       <script>
-    // Al cargar la página, insertar fecha actual
+      // Al cargar la página, insertar fecha actual
       document.addEventListener("DOMContentLoaded", function() {
       let hoy = new Date();
       let fecha = hoy.toLocaleDateString("es-PE"); // formato dd/mm/yyyy según región
       document.getElementById("fecha").value = fecha;
       });
       </script>
-
-     <!-- Cuadrilla de trabajo -->
-    <div class="form-group">
-      <label for="grupo">Cuadrilla</label>
-      <select id="grupo" name="grupo" required>
-        <option value="" disabled selected hidden>Seleccione una cuadrilla</option>
-        <option value="Cuadrilla de SSAA - Christian Cirinero">Cuadrilla de SSAA - Christian Cirinero</option>
-        <option value="Cuadrilla de limpieza - Marco Bernal">Cuadrilla de limpieza - Marco Bernal</option>
-        <option value="Cuadrilla de trabajos menores - Edwar Ortega">Cuadrilla de trabajos menores - Edwar Ortega</option>
-      </select>
-    </div>
+      <!-- Cuadrilla de trabajo -->
+      <div class="form-group">
+        <label for="grupo">Cuadrilla</label>
+        <select id="grupo" name="grupo" required>
+          <option value="" disabled selected hidden>Seleccione una cuadrilla</option>
+          <option value="Cuadrilla de SSAA - Christian Cirinero">Cuadrilla de SSAA - Christian Cirinero</option>
+          <option value="Cuadrilla de limpieza - Marco Bernal">Cuadrilla de limpieza - Marco Bernal</option>
+          <option value="Cuadrilla de trabajos menores - Edwar Ortega">Cuadrilla de trabajos menores - Edwar Ortega</option>
+        </select>
+      </div>
 
       <!-- SED -->
       <div class="form-group">
-        <label for="codigo">SED (ej: 01502S, 00021S)</label>
+        <label for="codigo">SED (ej: 01503S, 00021S)</label>
         <input type="text" id="codigo" name="codigo" required>
         <ul id="suggestions" class="suggestions-list"></ul>
       </div>
@@ -377,6 +375,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
