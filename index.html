@@ -39,6 +39,7 @@
           <option value="Cuadrilla de SSAA - Christian Cirinero">Cuadrilla de Servicios Auxiliares - Christian Cirineo</option>
           <option value="Cuadrilla de limpieza - Marco Bernal">Cuadrilla de limpieza - Marco Bernal</option>
           <option value="Cuadrilla de trabajos menores - Edwar Ortega">Cuadrilla de trabajos menores - Edwar Ortega</option>
+          <option value="Cuadrilla de termografía - David Fernandez">Cuadrilla de termografía - David Fernandez</option>
         </select>
       </div>
 
@@ -127,6 +128,7 @@
         <label for="ternasExistentes">Ternas existentes</label>
         <select id="ternasExistentes" name="ternasExistentes" required>
           <option value="" disabled selected hidden>Seleccione las ternas existentes</option>
+          <option value="No aplica, es barra única">No corresponde, es barra única</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -139,11 +141,23 @@
         <label for="ternasFaltantes">Ternas faltantes</label>
         <select id="ternasFaltantes" name="ternasFaltantes" required>
           <option value="" disabled selected hidden>Seleccione las ternas faltantes</option>
-          <option value="No aplica, ternas completas">No aplica, ternas completas</option>
+          <option value="No aplica, es barra única">No aplica, es barra única</option>
+          <option value="Ternas completas">Ternas completas</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
+        </select>
+      </div>
+
+      <!-- Robo reciente -->
+      <div class="form-group">
+        <label for="RoboReciente">¿Robo de ternas sustraidas es reciente?</label>
+        <select id="RoboReciente" name="RoboReciente" required>
+          <option value="" disabled selected hidden>Seleccione una respuesta</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+          <option value="No aplica">No aplica</option>
         </select>
       </div>
 
@@ -214,9 +228,9 @@
         </select>
       </div>
 
-      <!-- En el transformador ¿La barra cuenta con soporte sin ejercer torque en el bushing?-->
+      <!-- ¿La barra cuenta con soporte sin ejercer torque en el bushing?-->
       <div class="form-group">
-        <label for="TorqueBushing">En el transformador ¿La barra cuenta con soporte sin ejercer torque en el bushing?</label>
+        <label for="TorqueBushing">¿La barra cuenta con soporte sin ejercer torque en el bushing? (Ojo: Esto aplica para los casos donde no exista disyuntor en el transformador)</label>
         <select id="TorqueBushing" name="TorqueBushing" required>
           <option value="" disabled selected hidden>Seleccione una respuesta</option>
           <option value="Si">Sí</option>
@@ -382,6 +396,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
