@@ -1088,7 +1088,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
   // Lista de IDs de los campos, asegurando que coincidan con el esquema
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado", 
-    "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes", 
+    "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes", "RoboReciente", 
     "decoloracion", "carga1", "carga2", "carga3", "todosCables", "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera", "tapon", "Mirilla",
     "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite", "sensacion", "MedicionTemperatura", "equipoBT", "estadoBT", 
     "sistemaBarra", "hallazgos"
@@ -1147,5 +1147,6 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     console.error(error);
   }
 });
+
 
 
