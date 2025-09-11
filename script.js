@@ -1169,25 +1169,33 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
     });
 
     if (response.ok) {
-      mostrarMensaje("✅ Datos enviados correctamente", "success");
+      await Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: '✅ Datos enviados correctamente',
+        confirmButtonText: 'Aceptar'
+      });
       document.getElementById("registroForm").reset();
-
-      // restaurar fecha actual
       const hoy = new Date();
-      const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, "0")}-${String(hoy.getDate()).padStart(2, "0")}`;
+      const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
       document.getElementById("fecha").value = fechaHoy;
     } else {
-      mostrarMensaje("❌ Error al enviar datos", "error");
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: '❌ Hubo un problema al enviar los datos'
+      });
     }
   } catch (error) {
-    mostrarMensaje("⚠️ Hubo un problema con la conexión", "error");
+    Swal.fire({
+      icon: 'warning',
+      title: 'Conexión fallida',
+      text: '⚠️ No se pudo conectar con el servidor'
+    });
     console.error(error);
   }
-
-  // volver a habilitar el botón
-  btn.disabled = false;
-  btn.innerText = "Enviar";
 });
+
 
 
 
