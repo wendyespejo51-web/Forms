@@ -1079,51 +1079,53 @@ inputSED.addEventListener("keydown", function (e) {
   }
 });
 
+// ===== 3. ENVÍO DEL FORMULARIO =====
 document.getElementById("enviarBtn").addEventListener("click", async function(e) {
   e.preventDefault();
 
   const form = document.getElementById("registroForm");
+  const mensajeDiv = document.getElementById("mensaje");
 
-  // 1. Buscar todos los campos requeridos
+  // === Validación de campos obligatorios ===
   const requiredFields = form.querySelectorAll("[required]");
   let missingFields = [];
 
   requiredFields.forEach(field => {
     if (!field.value.trim()) {
-      // Buscar etiqueta <label> asociada
       const label = form.querySelector(`label[for="${field.id}"]`);
       missingFields.push(label ? label.innerText : field.id);
     }
   });
 
-  // 2. Si hay campos faltantes, mostrar mensaje y no enviar
   if (missingFields.length > 0) {
-    alert("⚠️ Faltan campos obligatorios:\n\n- " + missingFields.join("\n- "));
-    return; // Detener aquí
+    mensajeDiv.innerHTML = "⚠️ Faltan campos obligatorios:<br>- " + missingFields.join("<br>- ");
+    mensajeDiv.style.color = "red";
+    return; // Detener envío
   }
 
-  // 3. Objeto para almacenar los datos
+  // Objeto para almacenar los datos
   const datos = {};
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado", 
     "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes", "RoboReciente", 
-    "decoloracion", "carga1", "carga2", "carga3", "todosCables", "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera", "tapon", "Mirilla",
-    "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite", "sensacion", "MedicionTemperatura", "equipoBT", "estadoBT", 
-    "sistemaBarra", "hallazgos"
+    "decoloracion", "carga1", "carga2", "carga3", "todosCables", "estadoTrafo", "EmpaqueTrafo", 
+    "ArandelaPresion", "TorqueBushing", "BorneBandera", "tapon", "Mirilla",
+    "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite", "sensacion", 
+    "MedicionTemperatura", "equipoBT", "estadoBT", "sistemaBarra", "hallazgos"
   ];
 
   campos.forEach(campo => {
     const elemento = document.getElementById(campo);
     if (elemento) {
-      if (["codigo", "potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) {
-        datos[campo] = parseInt(elemento.value);
+      if (["codigo","potencia","carga1","carga2","carga3","MedicionTemperatura"].includes(campo)) {
+        datos[campo] = elemento.value ? parseInt(elemento.value) : null;
       } else {
         datos[campo] = elemento.value;
       }
     }
   });
 
-  // 4. Procesar imágenes
+  // Procesar imágenes
   datos.imagenes = [];
   const archivos = document.getElementById("imagenes").files;
   for (const archivo of archivos) {
@@ -1140,7 +1142,12 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     });
   }
 
-  // 5. Enviar datos al flujo
+  console.log("Objeto JSON a enviar:", datos);
+
+  // Mostrar mensaje de envío
+  mensajeDiv.textContent = "⏳ Enviando datos...";
+  mensajeDiv.style.color = "blue";
+
   try {
     const response = await fetch("https://prod-29.brazilsouth.logic.azure.com:443/workflows/55c50e4786ac4b6d8e7c847e073406c8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0AJgO27Tp2dSUdwcv5ties3GrFuGZ_2bbMP0nGYPKbk", {
       method: "POST",
@@ -1148,23 +1155,30 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
       body: JSON.stringify(datos)
     });
 
-    if (response.ok) {
-      alert("✅ Datos enviados correctamente");
-      form.reset();
+    if ([200,201,202].includes(response.status)) {
+      mensajeDiv.textContent = "✅ Datos enviados correctamente";
+      mensajeDiv.style.color = "green";
 
-      // Reiniciar la fecha actual
-      const hoy = new Date();
-      const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
-      document.getElementById("fecha").value = fechaHoy;
+      setTimeout(() => {
+        form.reset();
+        mensajeDiv.textContent = "";
+        const hoy = new Date();
+        const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
+        document.getElementById("fecha").value = fechaHoy;
+      }, 3000);
 
     } else {
-      alert("❌ Error al enviar datos");
+      mensajeDiv.textContent = `❌ Error al enviar datos (código ${response.status})`;
+      mensajeDiv.style.color = "red";
     }
+
   } catch (error) {
-    alert("⚠️ Hubo un problema con la conexión");
+    mensajeDiv.textContent = "⚠️ Hubo un problema con la conexión";
+    mensajeDiv.style.color = "red";
     console.error(error);
   }
 });
+
 
 
 
