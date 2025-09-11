@@ -1086,7 +1086,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
   const form = document.getElementById("registroForm");
   const mensajeDiv = document.getElementById("mensaje");
 
-  // === Validación de campos obligatorios ===
+  // 🔹 Validar campos obligatorios
   const requiredFields = form.querySelectorAll("[required]");
   let missingFields = [];
 
@@ -1098,12 +1098,12 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
   });
 
   if (missingFields.length > 0) {
-    mensajeDiv.innerHTML = "⚠️ Faltan campos obligatorios:<br>- " + missingFields.join("<br>- ");
+    mensajeDiv.textContent = "⚠️ Faltan campos obligatorios:\n- " + missingFields.join("\n- ");
     mensajeDiv.style.color = "red";
-    return; // Detener envío
+    return; // detener envío
   }
 
-  // Objeto para almacenar los datos
+  // 🔹 Construir objeto de datos
   const datos = {};
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado", 
@@ -1125,7 +1125,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     }
   });
 
-  // Procesar imágenes
+  // 🔹 Procesar imágenes
   datos.imagenes = [];
   const archivos = document.getElementById("imagenes").files;
   for (const archivo of archivos) {
@@ -1144,7 +1144,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
 
   console.log("Objeto JSON a enviar:", datos);
 
-  // Mostrar mensaje de envío
+  // 🔹 Mensaje de envío en progreso
   mensajeDiv.textContent = "⏳ Enviando datos...";
   mensajeDiv.style.color = "blue";
 
