@@ -1121,7 +1121,12 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   ];
 
   // ===== VALIDAR CAMPOS OBLIGATORIOS =====
-  const camposObligatorios = ["fecha", "grupo", "codigo", "potencia"];
+  const camposObligatorios = [ "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado",
+    "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes",
+    "RoboReciente", "decoloracion", "carga1", "carga2", "carga3", "todosCables",
+    "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera",
+    "tapon", "Mirilla", "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite",
+    "sensacion", "MedicionTemperatura", "equipoBT", "estadoBT", "sistemaBarra"];
   const faltantes = [];
 
   campos.forEach(campo => {
@@ -1134,17 +1139,20 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
       }
 
       if (camposObligatorios.includes(campo) && !datos[campo]) {
-        faltantes.push(campo);
-      }
+      // buscar el texto del label asociado
+      const label = document.querySelector(`label[for="${campo}"]`);
+      const nombreCampo = label ? label.textContent.trim() : campo; 
+      faltantes.push(nombreCampo);
     }
-  });
-
-  if (faltantes.length > 0) {
-    mostrarMensaje(`⚠️ Debes completar los siguientes campos: ${faltantes.join(", ")}`, "error");
-    btn.disabled = false;
-    btn.innerText = "Enviar";
-    return;
   }
+});
+
+    if (faltantes.length > 0) {
+      mostrarMensaje(`⚠️ Debes completar los siguientes campos: ${faltantes.join(", ")}`, "error");
+      btn.disabled = false;
+      btn.innerText = "Enviar";
+      return;
+    }
 
   // ===== PROCESAR IMÁGENES =====
   datos.imagenes = [];
@@ -1188,6 +1196,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
