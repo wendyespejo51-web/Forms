@@ -1082,10 +1082,28 @@ inputSED.addEventListener("keydown", function (e) {
 document.getElementById("enviarBtn").addEventListener("click", async function(e) {
   e.preventDefault();
 
-  // Objeto para almacenar los datos
-  const datos = {};
+  const form = document.getElementById("registroForm");
 
-  // Lista de IDs de los campos, asegurando que coincidan con el esquema
+  // 1. Buscar todos los campos requeridos
+  const requiredFields = form.querySelectorAll("[required]");
+  let missingFields = [];
+
+  requiredFields.forEach(field => {
+    if (!field.value.trim()) {
+      // Buscar etiqueta <label> asociada
+      const label = form.querySelector(`label[for="${field.id}"]`);
+      missingFields.push(label ? label.innerText : field.id);
+    }
+  });
+
+  // 2. Si hay campos faltantes, mostrar mensaje y no enviar
+  if (missingFields.length > 0) {
+    alert("⚠️ Faltan campos obligatorios:\n\n- " + missingFields.join("\n- "));
+    return; // Detener aquí
+  }
+
+  // 3. Objeto para almacenar los datos
+  const datos = {};
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado", 
     "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes", "RoboReciente", 
@@ -1094,7 +1112,6 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     "sistemaBarra", "hallazgos"
   ];
 
-  // Capturar datos de cada campo
   campos.forEach(campo => {
     const elemento = document.getElementById(campo);
     if (elemento) {
@@ -1106,7 +1123,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     }
   });
 
-  // Procesar las imágenes
+  // 4. Procesar imágenes
   datos.imagenes = [];
   const archivos = document.getElementById("imagenes").files;
   for (const archivo of archivos) {
@@ -1123,9 +1140,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     });
   }
 
-  // Debugging: Imprime el objeto que se va a enviar
-  console.log("Objeto JSON a enviar:", datos);
-  
+  // 5. Enviar datos al flujo
   try {
     const response = await fetch("https://prod-29.brazilsouth.logic.azure.com:443/workflows/55c50e4786ac4b6d8e7c847e073406c8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0AJgO27Tp2dSUdwcv5ties3GrFuGZ_2bbMP0nGYPKbk", {
       method: "POST",
@@ -1135,10 +1150,13 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
 
     if (response.ok) {
       alert("✅ Datos enviados correctamente");
-      document.getElementById("registroForm").reset();
+      form.reset();
+
+      // Reiniciar la fecha actual
       const hoy = new Date();
       const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
       document.getElementById("fecha").value = fechaHoy;
+
     } else {
       alert("❌ Error al enviar datos");
     }
@@ -1147,6 +1165,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function(e)
     console.error(error);
   }
 });
+
 
 
 
