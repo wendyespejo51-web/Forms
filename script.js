@@ -1124,9 +1124,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const camposObligatorios = [ "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado",
     "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes",
     "RoboReciente", "decoloracion", "todosCables",
-    "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera",
-    "tapon", "Mirilla", "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite",
-    "sensacion", "equipoBT", "estadoBT", "sistemaBarra"];
+    "estadoTrafo", "tapon", "sensacion"];
   const faltantes = [];
 
   campos.forEach(campo => {
@@ -1196,6 +1194,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
