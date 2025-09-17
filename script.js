@@ -1132,7 +1132,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
     let valor = elemento ? elemento.value.trim() : ""; 
 
     // Convertir a número si corresponde
-    if (["codigo", "potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) {
+    if (["potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) {
       datos[campo] = valor ? parseInt(valor) : ""; 
     } else { 
       datos[campo] = valor; 
@@ -1196,6 +1196,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
