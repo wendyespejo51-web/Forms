@@ -1127,25 +1127,23 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const faltantes = [];
 
       // Construir JSON
-  campos.forEach(campo => { 
-    const elemento = document.getElementById(campo); 
-    let valor = elemento ? elemento.value.trim() : ""; 
-
-    // Convertir a número si corresponde
-    if (elemento) {
-    if (["codigo","potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) {
-      datos[campo] = elemento.value ? parseint(elemento.value) : ""; 
+    campos.forEach(campo => { 
+  const elemento = document.getElementById(campo); 
+  if (elemento) { 
+    // Solo los campos realmente numéricos
+    if (["potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) { 
+      datos[campo] = elemento.value ? parseInt(elemento.value) : ""; 
     } else { 
-      datos[campo] = elemento.value.trim; 
+      datos[campo] = elemento.value.trim(); 
     } 
-      // Validar campos obligatorios
-      if (camposObligatorios.includes(campo) && !datos[campo]) {
-      // buscar el texto del label asociado
-      const label = document.querySelector(`label[for="${campo}"]`);
-      const nombreCampo = label ? label.textContent.trim() : campo; 
-      faltantes.push(nombreCampo);
-    }
-  }
+
+    // Validación solo para campos obligatorios
+    if (camposObligatorios.includes(campo) && !datos[campo]) { 
+      const label = document.querySelector(`label[for="${campo}"]`); 
+      const nombreCampo = label ? label.textContent.trim() : campo;  
+      faltantes.push(nombreCampo); 
+    } 
+  } 
 });
 
     if (faltantes.length > 0) {
@@ -1197,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
