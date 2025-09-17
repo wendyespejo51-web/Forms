@@ -263,7 +263,7 @@
        <!-- Nivel aceite en mirilla del transformador -->
       <div class="form-group">
         <label for="Mirilla">Nivel aceite en mirilla del transformador</label>
-        <select id="Mirilla" name="Mirilla" required>
+        <select id="Mirilla" name="Mirilla">
           <option value="" disabled selected hidden>Indique el nivel de aceite en la mirilla</option>
           <option value="Conforme">Conforme</option>
           <option value="Por encima del rango">Por encima del rango</option>
@@ -274,7 +274,7 @@
       <!-- Filtración de aceite -->
       <div class="form-group">
         <label for="filtracion">¿Filtración de aceite en el transformador?</label>
-        <select id="filtracion" name="filtracion" required>
+        <select id="filtracion" name="filtracion">
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Si">Sí</option>
           <option value="No">No</option>
@@ -284,7 +284,7 @@
       <!-- Nivel de filtración de aceite -->
       <div class="form-group">
         <label for="NivelFiltracion"> Nivel de filtración de aceite</label>
-        <select id="NivelFiltracion" name="NivelFiltracion" required>
+        <select id="NivelFiltracion" name="NivelFiltracion">
           <option value="" disabled selected hidden>Indicar el nivel de aceite</option>
           <option value="Leve">Leve</option>
           <option value="Moderado">Moderado</option>
@@ -296,7 +296,7 @@
       <!-- Dónde se encuentra filtración -->
       <div class="form-group">
         <label for="dondeFiltracion">¿Dónde se encuentra la filtración?</label>
-        <select id="dondeFiltracion" name="dondeFiltracion" required>
+        <select id="dondeFiltracion" name="dondeFiltracion">
           <option value="" disabled selected hidden>Seleccione la ubicación</option>
           <option value="No aplica, no se visualiza filtración de aceite">No aplica, no se visualiza filtración de aceite</option>
           <option value="Tapa">Tapa</option>
@@ -316,7 +316,7 @@
       <!-- Estado de aceite -->
       <div class="form-group">
         <label for="Estadoaceite">Estado de mancha de aceite</label>
-        <select id="Estadoaceite" name="Estadoaceite" required>
+        <select id="Estadoaceite" name="Estadoaceite">
           <option value="" disabled selected hidden>Seleccione el estado</option>
           <option value="Fresca / Activa">Fresca / Activa</option>
           <option value="Seco">Seco</option>
@@ -339,13 +339,13 @@
       <!-- Medición de temperatura con pirómetro -->
       <div class="form-group">
         <label for="MedicionTemperatura"> Medición de temperatura con pirómetro (°C)</label>
-        <input type="number" id="MedicionTemperatura" name="MedicionTemperatura" min="0" required>
+        <input type="number" id="MedicionTemperatura" name="MedicionTemperatura" min="0">
       </div>
 
       <!-- Disyuntor BT -->
       <div class="form-group">
         <label for="equipoBT">Disyuntor BT</label>
-        <select id="equipoBT" name="equipoBT" required>
+        <select id="equipoBT" name="equipoBT">
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Normalizado (Corresponde a capacidad del trafo)">Normalizado (Corresponde a capacidad del trafo)</option>
           <option value="No normalizado (No corresponde a capacidad del trafo)">No normalizado (No corresponde a capacidad del trafo)</option>
@@ -356,7 +356,7 @@
       <!-- Estado de disyuntor BT -->
       <div class="form-group">
         <label for="estadoBT">Estado de disyuntor BT</label>
-        <select id="estadoBT" name="estadoBT" required>
+        <select id="estadoBT" name="estadoBT">
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Buen estado">Buen estado</option>
           <option value="Fogoneado">Fogoneado</option>
@@ -399,6 +399,7 @@
   <script src="script.js?v=1.6"></script>
   </body>
 </html>
+
 
 
 
