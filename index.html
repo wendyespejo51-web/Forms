@@ -211,7 +211,7 @@
       <!-- Empaque de transformador de potencia -->
       <div class="form-group">
         <label for="EmpaqueTrafo">Empaque de transformador de potencia</label>
-        <select id="EmpaqueTrafo" name="EmpaqueTrafo">
+        <select id="EmpaqueTrafo" name="EmpaqueTrafo" required>
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Buen estado">Buen estado</option>
           <option value="Pintado">Pintado</option>
@@ -222,7 +222,7 @@
       <!-- ¿Transformador de potencia tiene arandela de presión?-->
       <div class="form-group">
         <label for="ArandelaPresion">¿Transformador de potencia tiene arandela de presión?</label>
-        <select id="ArandelaPresion" name="ArandelaPresion">
+        <select id="ArandelaPresion" name="ArandelaPresion" required>
           <option value="" disabled selected hidden>Seleccione una respuesta</option>
           <option value="Si">Sí</option>
           <option value="No">No</option>
@@ -232,7 +232,7 @@
       <!-- ¿La barra cuenta con soporte sin ejercer torque en el bushing?-->
       <div class="form-group">
         <label for="TorqueBushing">¿La barra cuenta con soporte sin ejercer torque en el bushing? (Ojo: Esto aplica para los casos donde no exista disyuntor en el transformador)</label>
-        <select id="TorqueBushing" name="TorqueBushing">
+        <select id="TorqueBushing" name="TorqueBushing" required>
           <option value="" disabled selected hidden>Seleccione una respuesta</option>
           <option value="Si">Sí</option>
           <option value="No">No</option>
@@ -242,7 +242,7 @@
       <!-- En el transformador ¿El tipo de aseguramiento de la barra es con borne tipo bandera?-->
       <div class="form-group">
         <label for="BorneBandera">En el transformador ¿El tipo de aseguramiento de la barra es con borne tipo bandera?</label>
-        <select id="BorneBandera" name="BorneBandera">
+        <select id="BorneBandera" name="BorneBandera" required>
           <option value="" disabled selected hidden>Seleccione una respuesta</option>
           <option value="Si">Sí</option>
           <option value="No">No</option>
@@ -263,7 +263,7 @@
        <!-- Nivel aceite en mirilla del transformador -->
       <div class="form-group">
         <label for="Mirilla">Nivel aceite en mirilla del transformador</label>
-        <select id="Mirilla" name="Mirilla">
+        <select id="Mirilla" name="Mirilla" required>
           <option value="" disabled selected hidden>Indique el nivel de aceite en la mirilla</option>
           <option value="Conforme">Conforme</option>
           <option value="Por encima del rango">Por encima del rango</option>
@@ -274,7 +274,7 @@
       <!-- Filtración de aceite -->
       <div class="form-group">
         <label for="filtracion">¿Filtración de aceite en el transformador?</label>
-        <select id="filtracion" name="filtracion">
+        <select id="filtracion" name="filtracion" required>
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Si">Sí</option>
           <option value="No">No</option>
@@ -284,7 +284,7 @@
       <!-- Nivel de filtración de aceite -->
       <div class="form-group">
         <label for="NivelFiltracion"> Nivel de filtración de aceite</label>
-        <select id="NivelFiltracion" name="NivelFiltracion">
+        <select id="NivelFiltracion" name="NivelFiltracion" required>
           <option value="" disabled selected hidden>Indicar el nivel de aceite</option>
           <option value="Leve">Leve</option>
           <option value="Moderado">Moderado</option>
@@ -316,7 +316,7 @@
       <!-- Estado de aceite -->
       <div class="form-group">
         <label for="Estadoaceite">Estado de mancha de aceite</label>
-        <select id="Estadoaceite" name="Estadoaceite">
+        <select id="Estadoaceite" name="Estadoaceite" required>
           <option value="" disabled selected hidden>Seleccione el estado</option>
           <option value="Fresca / Activa">Fresca / Activa</option>
           <option value="Seco">Seco</option>
@@ -345,7 +345,7 @@
       <!-- Disyuntor BT -->
       <div class="form-group">
         <label for="equipoBT">Disyuntor BT</label>
-        <select id="equipoBT" name="equipoBT">
+        <select id="equipoBT" name="equipoBT" required>
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Normalizado (Corresponde a capacidad del trafo)">Normalizado (Corresponde a capacidad del trafo)</option>
           <option value="No normalizado (No corresponde a capacidad del trafo)">No normalizado (No corresponde a capacidad del trafo)</option>
@@ -356,7 +356,7 @@
       <!-- Estado de disyuntor BT -->
       <div class="form-group">
         <label for="estadoBT">Estado de disyuntor BT</label>
-        <select id="estadoBT" name="estadoBT">
+        <select id="estadoBT" name="estadoBT" required>
           <option value="" disabled selected hidden>Seleccione un elemento</option>
           <option value="Buen estado">Buen estado</option>
           <option value="Fogoneado">Fogoneado</option>
@@ -399,6 +399,7 @@
   <script src="script.js?v=1.7"></script>
   </body>
 </html>
+
 
 
 
