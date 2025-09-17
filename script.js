@@ -1132,13 +1132,11 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
     let valor = elemento ? elemento.value.trim() : ""; 
 
     // Convertir a número si corresponde
-    if (elemento) {
     if (["codigo", "potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) {
-    datos[campo] = elemento.value && !isNaN(elemento.value) ? parseInt(elemento.value) : "";
-    } else {
-        datos[campo] = elemento.value ? elemento.value.trim() : "";
-    }
-      
+      datos[campo] = valor ? parseInt(valor) : ""; 
+    } else { 
+      datos[campo] = valor; 
+    } 
       // Validar campos obligatorios
       if (camposObligatorios.includes(campo) && !datos[campo]) {
       // buscar el texto del label asociado
@@ -1198,6 +1196,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
