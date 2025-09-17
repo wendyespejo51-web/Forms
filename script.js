@@ -1123,8 +1123,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   // ===== VALIDAR CAMPOS OBLIGATORIOS =====
   const camposObligatorios = [ "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado",
     "cableSustraido", "seccionCable", "tipoCable", "ternasExistentes", "ternasFaltantes",
-    "RoboReciente", "decoloracion", "todosCables",
-    "estadoTrafo", "tapon", "sensacion"];
+    "RoboReciente", "decoloracion", "todosCables", "estadoTrafo", "tapon", "sensacion"];
   const faltantes = [];
 
   campos.forEach(campo => {
@@ -1194,6 +1193,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
