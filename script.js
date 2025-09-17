@@ -1134,7 +1134,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
     if (["potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) { 
       datos[campo] = elemento.value ? parseInt(elemento.value) : ""; 
     } else { 
-      datos[campo] = elemento.value.trim(); 
+      datos[campo] = elemento.value.trim() || ""; 
     } 
 
     // Validación solo para campos obligatorios
@@ -1195,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
