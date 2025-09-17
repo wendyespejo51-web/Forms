@@ -1131,10 +1131,10 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const elemento = document.getElementById(campo); 
   if (elemento) { 
     // Solo los campos realmente numéricos
-    if (["potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) { 
-      datos[campo] = elemento.value ? parseInt(elemento.value) : null; 
+    if (["potencia", "carga1", "carga2", "carga3"].includes(campo)) { 
+      datos[campo] = elemento.value ? parseInt(elemento.value) : ""; 
     } else { 
-      datos[campo] = elemento.value.trim() || null; 
+      datos[campo] = elemento.value.trim(); 
     } 
 
     // Validación solo para campos obligatorios
@@ -1195,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
