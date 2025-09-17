@@ -1131,7 +1131,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const elemento = document.getElementById(campo); 
   if (elemento) { 
     // Solo los campos realmente numéricos
-    if (["potencia", "carga1", "carga2", "carga3"].includes(campo)) { 
+    if (["potencia", "carga1", "carga2", "carga3","MedicionTemperatura"].includes(campo)) { 
       datos[campo] = elemento.value ? parseInt(elemento.value) : ""; 
     } else { 
       datos[campo] = elemento.value.trim() || ""; 
@@ -1195,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
