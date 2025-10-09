@@ -1117,7 +1117,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
     "RoboReciente", "decoloracion", "carga1", "carga2", "carga3", "todosCables",
     "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera",
     "tapon", "Mirilla", "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite",
-    "sensacion", "MedicionTemperatura", "equipoBT", "estadoBT", "sistemaBarra", "hallazgos"
+    "sensacion", "equipoBT", "estadoBT", "sistemaBarra", "hallazgos"
   ];
     
   // ===== VALIDAR CAMPOS OBLIGATORIOS =====
@@ -1131,7 +1131,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const elemento = document.getElementById(campo); 
   if (elemento) { 
     // Solo los campos realmente numéricos
-    if (["potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) { 
+    if (["potencia", "carga1", "carga2", "carga3"].includes(campo)) { 
       datos[campo] = elemento.value ? parseInt(elemento.value) : ""; 
     } else { 
       datos[campo] = elemento.value.trim() || ""; 
@@ -1195,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
