@@ -1113,7 +1113,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const datos = {};
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado",
-    "cableSustraido", "seccionCable", "tipoCable", "MaterialCC", "Cablemixto","ternasExistentes", "ternasFaltantes",
+    "cableSustraido", "seccionCable", "tipoCable", "MaterialCC", "Cablemixto", "ternasExistentes", "ternasFaltantes",
     "RoboReciente", "decoloracion", "carga1", "carga2", "carga3", "todosCables",
     "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera",
     "tapon", "Mirilla", "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite",
@@ -1131,7 +1131,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const elemento = document.getElementById(campo); 
   if (elemento) { 
     // Solo los campos realmente numéricos
-    if (["potencia", "carga1", "carga2", "carga3","MedicionTemperatura"].includes(campo)) { 
+    if (["potencia", "carga1", "carga2", "carga3", "MedicionTemperatura"].includes(campo)) { 
       datos[campo] = elemento.value ? parseInt(elemento.value) : ""; 
     } else { 
       datos[campo] = elemento.value.trim() || ""; 
@@ -1169,7 +1169,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
 
   // ===== ENVIAR DATOS =====
   try {
-    const response = await fetch("https://prod-29.brazilsouth.logic.azure.com:443/workflows/55c50e4786ac4b6d8e7c847e073406c8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0AJgO27Tp2dSUdwcv5ties3GrFuGZ_2bbMP0nGYPKbk", {
+    const response = await fetch("https://default1c0051dd45964b1a9849d060735057.69.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/55c50e4786ac4b6d8e7c847e073406c8/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=dxX3ovjHT2HhoKr2-ZCp-knOLgVbBtFDb2mRrr2x3RQ", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datos)
@@ -1195,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
