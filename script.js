@@ -1113,7 +1113,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   const datos = {};
   const campos = [
     "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado",
-    "cableSustraido", "seccionCable", "tipoCable", "MaterialCC","Cablemixto","ternasExistentes", "ternasFaltantes",
+    "cableSustraido", "seccionCable", "tipoCable", "MaterialCC", "Cablemixto","ternasExistentes", "ternasFaltantes",
     "RoboReciente", "decoloracion", "carga1", "carga2", "carga3", "todosCables",
     "estadoTrafo", "EmpaqueTrafo", "ArandelaPresion", "TorqueBushing", "BorneBandera",
     "tapon", "Mirilla", "filtracion", "NivelFiltracion", "dondeFiltracion", "Estadoaceite",
@@ -1122,7 +1122,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
     
   // ===== VALIDAR CAMPOS OBLIGATORIOS =====
   const camposObligatorios = [ "fecha", "grupo", "codigo", "alim", "Celda", "potencia", "cableNormalizado",
-    "cableSustraido", "seccionCable", "tipoCable", "MaterialCC","Cablemixto", "ternasExistentes", "ternasFaltantes",
+    "cableSustraido", "seccionCable", "tipoCable", "MaterialCC", "Cablemixto", "ternasExistentes", "ternasFaltantes",
     "RoboReciente", "decoloracion", "todosCables", "estadoTrafo", "tapon", "sensacion"];
   const faltantes = [];
 
@@ -1195,6 +1195,7 @@ document.getElementById("enviarBtn").addEventListener("click", async function (e
   btn.disabled = false;
   btn.innerText = "Enviar";
 });
+
 
 
 
